@@ -7,7 +7,7 @@ function Calculator() {
 
   //hook to store and update input and result
   const [currInput, setcurrInput] = useState("");
-  const [result, setResult] = useState(0);
+  var setResult=0;
 
   //store normal button click values
   const ButtonClick = (value) => {
@@ -18,45 +18,40 @@ function Calculator() {
   const Calculate = () => {
     try {
       const calcresult = eval(currInput);
-      setResult(calcresult);
       setcurrInput(calcresult.toString());
     } catch (error) {
       //for error display
-      setResult("Error");
+      setResult="Error";
     }
   };
 
   //all clear
   const ClearAll = () => {
     setcurrInput("");
-    setResult(0);
+    setResult=0;
   };
 
   //square number
   const Square = () => {
     const calcresult = Math.pow(parseFloat(currInput), 2);
-    setResult(calcresult);
     setcurrInput(calcresult.toString());
   };
 
   //cube number
   const Cube = () => {
     const calcresult = Math.pow(parseFloat(currInput), 3);
-    setResult(calcresult);
     setcurrInput(calcresult.toString());
   };
 
   //square root
   const SquareRoot = () => {
     const calcresult = Math.sqrt(parseFloat(currInput));
-    setResult(calcresult);
     setcurrInput(calcresult.toString());
   };
 
   //cube root
   const CubeRoot = () => {
     const calcresult = Math.cbrt(parseFloat(currInput));
-    setResult(calcresult);
     setcurrInput(calcresult.toString());
   };
 
