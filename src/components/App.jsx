@@ -1,11 +1,8 @@
 import React from "react";
 import Calculator from "./Calculator";
 import Header from "./Header";
-//app
-//header
-//calculator
-//display
-//buttons
+
+//main component app uses header and calculator component
 function App() {
   return (
     <div>

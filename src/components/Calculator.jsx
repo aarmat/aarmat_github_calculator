@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import Display from "./Display";
 import Button from "./Button";
 
-//calculaltor{
-//display
-//button{
-//mapping label and function}}
-
+//Component Calculator uses Display and Button component
 function Calculator() {
+
   //hook to store and update input and result
   const [currInput, setcurrInput] = useState("");
   const [result, setResult] = useState(0);
@@ -17,7 +14,7 @@ function Calculator() {
     setcurrInput((prevInput) => prevInput + value);
   };
 
-  //eval simple math expression
+  //evaluate simple math expression
   const Calculate = () => {
     try {
       const calcresult = eval(currInput);
@@ -35,41 +32,40 @@ function Calculator() {
     setResult(0);
   };
 
-  //square
+  //square number
   const Square = () => {
     const calcresult = Math.pow(parseFloat(currInput), 2);
     setResult(calcresult);
     setcurrInput(calcresult.toString());
   };
 
-  //cube
+  //cube number
   const Cube = () => {
     const calcresult = Math.pow(parseFloat(currInput), 3);
     setResult(calcresult);
     setcurrInput(calcresult.toString());
   };
 
-  //sqr root
+  //square root
   const SquareRoot = () => {
     const calcresult = Math.sqrt(parseFloat(currInput));
     setResult(calcresult);
     setcurrInput(calcresult.toString());
   };
 
-  //cb root
+  //cube root
   const CubeRoot = () => {
     const calcresult = Math.cbrt(parseFloat(currInput));
     setResult(calcresult);
     setcurrInput(calcresult.toString());
   };
 
-  //backspc
+  //backspace
   const Backspace = () => {
     setcurrInput((prevInput) => prevInput.slice(0, -1));
   };
 
-  //button array for mapping
-  //map label and onclick function call
+  //buttons array for mapping defines label and onClick property
   const buttons = [
     //row1
     { label: "AC", onClick: ClearAll },
@@ -106,7 +102,7 @@ function Calculator() {
     <div className="calculator">
       <Display value={currInput} />
       <div>
-        {buttons.map((button, index) => (
+        {buttons.map((button) => (
           <Button
             key={button.index}
             label={button.label}
